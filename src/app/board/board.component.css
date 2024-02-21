@@ -1,10 +1,13 @@
+
 main {
     display: grid;
     grid-template-columns: 200px 200px 200px;
-    grid-gap: 0px;
+    grid-gap: 1px;
 }
   
 app-square {
-    border: 1px gray solid;
+    background-color: gray;
     height: 200px;
+    text-align: center;
+    font-size: 112px;
 }

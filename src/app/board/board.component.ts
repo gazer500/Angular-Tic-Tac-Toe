@@ -32,7 +32,7 @@ export class BoardComponent implements OnInit {
   }
 
   makeMove(i: number) {
-    if (!this.squares[i]) {
+    if (!this.squares[i] && !this.calculateWinner()) {
       this.squares.splice(i, 1, this.player)
       this.xIsNext = !this.xIsNext;
     }
@@ -51,6 +51,8 @@ export class BoardComponent implements OnInit {
       [0, 4, 8],
       [2, 4, 6]
     ];
+
+    var filledSquares = 0
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (
@@ -60,7 +62,15 @@ export class BoardComponent implements OnInit {
       ) {
         return this.squares[a];
       }
+      if (this.squares[i]) {
+        filledSquares += 1;
+      }
     }
+
+    if (filledSquares >= 8) {
+      return "no one"
+    }
+
     return null;
   }
 }
