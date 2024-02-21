@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-square',
   standalone: true,
   imports: [CommonModule],
-  template: `<p>square works!</p>`,
+  template: `
+    <button>{{ value }}</button>
+  `,
   styles: ``
 })
-export class SquareComponent {}
+export class SquareComponent {
+  @Input() value: 'X' | 'O' = 'X';
+}
